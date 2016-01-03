@@ -11,7 +11,7 @@ include "DbConnection.php";
 $name = $_POST["name"];
 $location = $_POST["location"];
 $phoneNumber = $_POST["phone"];
-$emailAddress = $_POST["emailAddress"];
+$emailAddress = $_POST["email"];
 $username=$_POST["uname"];
 $password=$_POST["passwordPInfo"];
 

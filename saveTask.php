@@ -20,7 +20,7 @@ $dupQuery="Select *from Task where CategoryId='$categoryTitle' and Title='$taskT
 $dupResult = $conn->query($dupQuery);
 
 if($dupRow = mysqli_fetch_assoc($dupResult)){
-    $data = Array("subscriber" => "Your Task is already in the list");
+    $data = Array("task" => "Your Task is already in the list","result"=>"error");
     echo json_encode($data);
 }else {
 
@@ -31,10 +31,10 @@ if($dupRow = mysqli_fetch_assoc($dupResult)){
     $checkResult = $conn->query($dupQuery);
 
     if ($checkResult) {
-        $data = Array("subscriber" => "Your Task is saved successfully!!");
+        $data = Array("task" => "Your Task is saved successfully!!","result"=>"success");
         echo json_encode($data);
     } else {
-        $data = Array("subscriber" => "Error while saving your Task!!");
+        $data = Array("task" => "Error while saving your Task!!","result"=>"error");
         echo json_encode($data);
     }
 }

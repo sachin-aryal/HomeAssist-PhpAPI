@@ -2,14 +2,14 @@
 /**
  * Created by IntelliJ IDEA.
  * User: sachin
- * Date: 1/2/2016
- * Time: 2:40 PM
+ * Date: 1/3/2016
+ * Time: 2:50 AM
  */
 
 include "DbConnection.php";
 
-$categoryTitle = $_POST["categoryTitle"];
-$query="Select *from Task where CategoryId='$categoryTitle'";
+$searchItem = $_POST["searchItem"];
+$query="Select *from Task where CategoryId='%$searchItem%' OR Title='%$searchItem%' OR Description='%$searchItem%',";
 $queryResult=$conn->query($query);
 
 $data = array();

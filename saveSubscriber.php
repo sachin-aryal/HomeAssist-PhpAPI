@@ -15,7 +15,7 @@ $dupQuery = "Select *from Subscriber where CategoryId='$categoryTitle' and UserI
 $dupResult = $conn->query($dupQuery);
 
 if($dupRow = mysqli_fetch_assoc($dupResult)){
-    $data = Array("subscriber" => "Your profile is already in the list");
+    $data = Array("subscriber" => "Your profile is already in the list","result"=>"error");
     echo json_encode($data);
 }else{
 
@@ -25,12 +25,12 @@ if($dupRow = mysqli_fetch_assoc($dupResult)){
     $checkResult = $conn->query($dupQuery);
 
     if($dupRow = mysqli_fetch_assoc($checkResult)){
-        $data = Array("subscriber" => "Your profile is saved successfully!!");
+        $data = Array("subscriber" => "Your profile is saved successfully!!","result"=>"success");
         echo json_encode($data);
     }
     else
     {
-        $data = Array("subscriber" => "Error while saving your profile!!");
+        $data = Array("subscriber" => "Error while saving your profile!!","result"=>"error");
         echo json_encode($data);
     }
 }
